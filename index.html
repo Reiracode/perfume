@@ -158,15 +158,15 @@
             </div>    
         </section>
 
-        <section class="descrip"> 
+        <section class="subscribe"> 
             <form action="">
-                <label for="desc_email">
+                <label for="subscr_email">
                     記得<br>
                     訂閱以獲取更多資訊！
                 </label>
-                <div class="descrip_info">
-                    <input type="text" placeholder="your email address" id="desc_email">
-                    <input type="button" id="desc_email" value="Subscribe">
+                <div class="subscr_info">
+                    <input type="text" placeholder="your email address" id="subscr_email">
+                    <a href="#" class="subscr_button">Button</a>
                 </div>
             </form>  
         </section>
@@ -192,54 +192,22 @@ var ani_img = document.querySelectorAll('.intro_img img');
 var sections = Array.prototype.concat(...ani_text, ...ani_img); 
 
 sections.forEach(function(item,i){
-    gsap.set(item, { opacity: 0,y: 100});
-
+    gsap.set(item, {x:0, y:100, z:0, opacity: 0});
     const tl = gsap.timeline( { 
         scrollTrigger: {
             trigger: item,
             start: "+=133 80%",
             end: "+=200 40%",
             scrub: true,
-            markers: true,
             toggleActions: "play reverse play reverse",
         }
     });
 
-    tl.to(item, { opacity: 1, duration: 0.6 ,ease: "power2"})
-        .to(item, { y: 0, duration: 0.3,ease: "power2" });
+    // tl.to(item, { opacity: 1, duration: 0.6 ,ease: "power2"})
+    //     .to(item, { y: 0, duration: 0.3,ease: "power2" });
+    tl.to(item, {opacity: 1, x:0,y:0,z:0,ease:"power2"});
 });
 
-
-// scrolltolenghts.each(( i, val ) => {
-//     console.log(val);
-//     // your code for each section goes here
-//     gsap.timeline({
-//         scrollTrigger: {
-//             trigger: val,
-//             start: "top 60%",
-//         end: () => innerHeight * 0.6,
-//         scrub: true
-//         }
-//     }).from(val, {height:0, ease: "power2"});
-// });
-
-// var targets = document.querySelectorAll(".intro_descrip");
-
-// targets.forEach(target => {
-//     const tl = gsap.timeline({
-//         defaults: {duration: 1},
-//         scrollTrigger: {
-//         trigger: target,
-//         scrub: true,
-//         markers: true,
-//         start: "center 80%",
-//         end: "center 20%"
-//         }
-//     })
-//     .fromTo(target, {y: 50}, {y: -50})
-//     .from(target, {opacity: 0, duration: 0.2}, 0)
-//     .to(target, {opacity: 0, duration: 0.2}, 0.8)
-// });
 
 const navBar = document.querySelector('.menu');
 const dropNav = document.querySelector('ul.navlink');

@@ -266,6 +266,15 @@ footer .navlink a {
           flex: 0 0 calc(50% - 0px);
 }
 
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,11 +310,13 @@ footer .navlink a {
   margin: 80px auto 0 auto;
 }
 
+section[class^="product"]:not(.product_show) {
+  background-color: #fff;
+}
+
 .banner {
   height: calc(100vh - 80px);
-  background: center/contain no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
-  background-attachment: fixed;
-  background-size: cover;
+  background: center/cover no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -510,11 +521,8 @@ footer .navlink a {
   font-weight: bold;
 }
 
-.descrip {
-  background: center/contain no-repeat url(https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80);
+.subscribe {
   height: calc(100vh - 80px);
-  background-attachment: fixed;
-  background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -523,12 +531,24 @@ footer .navlink a {
           align-items: flex-end;
 }
 
-.descrip form {
+.subscribe::before {
+  content: "";
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: center/cover no-repeat url(https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80);
+}
+
+.subscribe form {
   padding: 20px;
   margin-bottom: 5rem;
 }
 
-.descrip label {
+.subscribe label {
   display: inline-block;
   font-size: 2rem;
   font-weight: bold;
@@ -536,16 +556,15 @@ footer .navlink a {
   margin-bottom: 20px;
 }
 
-.descrip .descrip_info {
+.subscribe .subscr_info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 56px;
   border: 2px solid #916000;
-  border-radius: 0.25rem;
 }
 
-.descrip .descrip_info input[type=text] {
+.subscribe .subscr_info input[type=text] {
   height: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -557,10 +576,17 @@ footer .navlink a {
   padding: 5px;
 }
 
-.descrip .descrip_info input[type=button] {
-  padding: 10px;
+.subscribe .subscr_info .subscr_button {
+  padding: 10px 20px;
   color: #fff;
   background: #916000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .product_list {
