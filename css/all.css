@@ -45,7 +45,12 @@
 a {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 img {
@@ -110,7 +115,6 @@ header {
     width: 100%;
     max-height: 0px;
     overflow: hidden;
-    background-color: #916000;
     -webkit-transition: all .3s ease-in;
     transition: all .3s ease-in;
   }
@@ -122,6 +126,12 @@ header {
   }
   .navlink .material-icons {
     display: none;
+  }
+  .navlink li {
+    background-color: #8c8c8c;
+  }
+  .navlink li:hover {
+    background-color: #916000;
   }
   .navlink a {
     padding: 10px;
@@ -148,6 +158,10 @@ header {
   }
 }
 
+.mobile-navlink a {
+  color: #8c8c8c;
+}
+
 .mobile-navlink .menu {
   cursor: pointer;
   width: 50px;
@@ -170,9 +184,29 @@ header {
   width: 100%;
   margin: 5px 0;
   height: 1px;
-  background-color: #916000;
+  background-color: #8c8c8c;
   -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
+}
+
+.mobile-navlink .menu:hover span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-navlink .menu:hover span:nth-child(1), .mobile-navlink .menu:hover span:nth-child(3) {
+  width: 100%;
+  position: absolute;
+  left: 1px;
+}
+
+.mobile-navlink .menu:hover span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.mobile-navlink .menu:hover span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 footer {
@@ -211,13 +245,26 @@ footer .navlink a {
           flex-direction: column;
 }
 
-.card-list img {
+.card-list .card-img {
+  overflow: hidden;
+}
+
+.card-list .card-img img {
   width: 100%;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: bottom;
      object-position: bottom;
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-list .card-img:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .card-list .card-body {
@@ -226,6 +273,10 @@ footer .navlink a {
       -ms-flex-positive: 1;
           flex-grow: 1;
   padding: 1rem;
+}
+
+.card-list .card-body .material-icons {
+  color: #916000;
 }
 
 .card-cover {
@@ -273,6 +324,11 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.button-b-r {
+  border-radius: 2rem;
+  padding: 20px;
 }
 
 .pagination {
@@ -336,7 +392,10 @@ section[class^="product"]:not(.product_show) {
 
 .banner .banner_descript * {
   margin: 20px 0;
-  text-shadow: 1px 1px 0px #8c8c8c;
+}
+
+.banner .banner_descript h2 {
+  font-size: 2rem;
 }
 
 .banner .banner_descript p, .banner .banner_descript a {
@@ -443,9 +502,6 @@ section[class^="product"]:not(.product_show) {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -464,7 +520,12 @@ section[class^="product"]:not(.product_show) {
 }
 
 .intro_descrip span {
-  margin-top: auto;
+  color: #916000;
+}
+
+.intro_descrip a {
+  color: inherit;
+  border: 1px solid;
 }
 
 .product_show {
@@ -503,22 +564,41 @@ section[class^="product"]:not(.product_show) {
   padding: 2rem;
 }
 
-.product_recycle .col-7 {
+.product_recycle .recycle_img {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 500px;
           flex: 1 1 500px;
 }
 
-.product_recycle .info {
+.product_recycle .recycle_img img {
+  width: 100%;
+  height: 100%;
+}
+
+.product_recycle .recycle_info {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 300px;
           flex: 1 1 300px;
   padding: 1rem;
 }
 
-.product_recycle .info h3 {
+.product_recycle .recycle_info h3 {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.product_recycle .recycle_info h4 {
+  margin: 20px 0;
+}
+
+.product_recycle .recycle_info p {
+  letter-spacing: 1px;
+}
+
+.product_recycle .recycle_info span {
+  color: #916000;
+  display: inline-block;
+  margin: 20px 0;
 }
 
 .subscribe {

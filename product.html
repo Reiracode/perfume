@@ -83,6 +83,7 @@
         </footer>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
+ 
 <script>
 var tbody = document.querySelector('#product_content');
 var img_link='https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/';
@@ -101,6 +102,8 @@ function render() {
                     <h3>Poppy & Barley</h3>
                     <p>Jo Malone</p>
                     <p>NT$1,380</p>
+                    <span class="material-icons ">favorite</span>
+                    <span class="material-icons ">shopping_cart</span>
                 </div>
         </div>`;
     });    
@@ -108,6 +111,7 @@ function render() {
 }
 render();
 lazyload();
+
 
 const navBar = document.querySelector('.menu');
 const dropNav = document.querySelector('ul.navlink');

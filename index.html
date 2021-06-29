@@ -39,7 +39,7 @@
                 <p>
                     A perfume is like a piece of clothing, a message, a way of presenting oneself a costume that according to the person who wears it.
                 </p>
-                <a href="./product.html">Shop now</a>
+                <a href="./product.html" class="button-b-r">Shop now</a>
             </div>
         </section>
 
@@ -93,17 +93,18 @@
                     </div>      
 
                     <div class="intro_descrip">
-                        <div>
+                        <!-- <div> -->
                             <h1>1.Levels of Preventive Maintenance Compliance</h1>
-                            The core idea of preventative maintenance is the performance of proactive actions against unscheduled downtime in order to identify potential defects before they evolve into something more severe
+                            <p>The core idea of preventative maintenance is the performance of proactive actions against unscheduled downtime in order to identify potential defects before they evolve into something more severe.</p>
 
                             <h1>2.Percentage of Planned Maintenance</h1>
-                            The planned maintenance percentage is the total planned maintenance time in your CMMS software over a date range over the total number of hours of a service performed by the technicians.
+                            <p>The planned maintenance percentage is the total planned maintenance time in your CMMS software over a date range over the total number of hours of a service performed by the technicians.</p>
 
                             <h1>3.percentage of planned maintenance</h1>
-                            Calculating the critical percentage of planned maintenance will help you prioritize the most important operations that should be performed immediately.
-                            <span>查看更多</span>
-                        </div> 
+                            <p>Calculating the critical percentage of planned maintenance will help you prioritize the most important operations that should be performed immediately.</p>
+
+                            <a href="#" class="button-b-r">Plan a free online training</a>
+                        <!-- </div>  -->
                     </div>
                 </li>
             </ul>
@@ -145,13 +146,13 @@
         </section>       
 
         <section class="product_recycle">
-            <div class="col-7">
+            <div class="recycle_img">
                 <img src="https://images.unsplash.com/photo-1594913615593-e4b8c44625be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80" alt="">
             </div>
 
-            <div class="info">
+            <div class="recycle_info">
                 <h3>Bottle-Recycling</h3>
-                <p>Recycle your used empty bottles and be rewarded!</p>
+                <h4>Recycle your used empty bottles and be rewarded!</h4>
                 <p>For the past 10 years, we have collected over 800,000 bottles through Empty Bottle Recycling Campaign and planted more than 860 pine trees for a better environment.For the past 10 years, we have collected over 800,000 bottles through Empty Bottle Recycling Campaign and planted more than 860 pine trees for a better environment.
                 </p>
                 <span>查看更多</span>
@@ -183,31 +184,52 @@
             </ul>
         </footer>
     </div>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 <script>
+// const boxes = gsap.utils.toArray('.info p');
 
-var ani_text = document.querySelectorAll('.intro_descrip');
-var ani_img = document.querySelectorAll('.intro_img img');
-var sections = Array.prototype.concat(...ani_text, ...ani_img); 
+var ani1 = document.querySelectorAll('section p');
+var ani2 = document.querySelectorAll('section img');
+var ani_all = Array.prototype.concat(...ani1, ...ani2); 
+const boxes = gsap.utils.toArray(ani_all);
 
-sections.forEach(function(item,i){
-    gsap.set(item, {x:0, y:100, z:0, opacity: 0});
-    const tl = gsap.timeline( { 
-        scrollTrigger: {
-            trigger: item,
-            start: "+=133 80%",
-            end: "+=200 40%",
-            scrub: true,
-            toggleActions: "play reverse play reverse",
-        }
+boxes.forEach((box, i) => {
+    const anim = gsap.fromTo(box, {autoAlpha: 0, y: 50}, {duration: 1, autoAlpha: 1, y: 0});
+    ScrollTrigger.create({
+        trigger: box,
+        animation: anim,
+        toggleActions: 'play none none none',
+        once: true,
     });
-
-    // tl.to(item, { opacity: 1, duration: 0.6 ,ease: "power2"})
-    //     .to(item, { y: 0, duration: 0.3,ease: "power2" });
-    tl.to(item, {opacity: 1, x:0,y:0,z:0,ease:"power2"});
 });
 
+
+
+
+// var ani_text = document.querySelectorAll('.intro_descrip');
+// var ani_img = document.querySelectorAll('.intro_img img');
+// var sections = Array.prototype.concat(...ani_text, ...ani_img); 
+
+// sections.forEach(function(item,i){
+//     gsap.set(item, {x:0, y:100, opacity: 0});
+//     const tl = gsap.timeline( { 
+//         scrollTrigger: {
+//             trigger: item,
+//             start: "+=133 80%",
+//             end: "+=200 40%",
+//             scrub: true,
+//             toggleActions: "play none none none"
+//         }
+//     });
+
+
+// //  ease: Elastic.easeOut.config(0.9, 0.4)} 
+// //     //     .to(item, { y: 0, duration: 0.3,ease: "power2" });
+//     tl.to(item, {duration:0.6,  ease: Elastic.easeOut.config(0.9, 0.4), opacity: 1, x:0, y:0});
+
+// });
 
 const navBar = document.querySelector('.menu');
 const dropNav = document.querySelector('ul.navlink');
