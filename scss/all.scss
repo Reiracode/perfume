@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "mixin";
+@import "variable";
+
+@import "base";
+
+@import "./layout/navbar";
+@import "./components/card";
+@import "./components/pagination";
+@import "./pages/product";
+
+@import "main";
+
+
+// https://github.com/chunchun126/perfume_shop/blob/main/app/assets/style/base/_base.scss
+
+
+

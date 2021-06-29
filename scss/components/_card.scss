@@ -1,0 +1,43 @@
+.card-list{
+    display: flex;
+    flex-direction: column;
+    img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: bottom;
+    }
+    .card-body {
+        background:$space-color;
+        flex-grow: 1;
+        padding: 1rem;
+    }
+}
+
+
+.card-cover{
+    position: relative;
+    &::after {
+        content: "SOLD OUT";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        letter-spacing: 3px;
+        @include bg-opacity($secondary-color,0.85);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+// two column 
+.col-2{
+    display:flex;
+    div{
+        @include column-basis-style(0,50%);
+    }
+}

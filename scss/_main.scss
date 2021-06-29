@@ -1,0 +1,196 @@
+.wrap{
+    font-family: $main-font;
+    margin: #{$header-height} auto 0 auto;
+}
+
+.banner{
+    height: $full-vh;
+    background: center / contain no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .banner_descript{
+        color:#fff;
+        width:50%;
+        padding: 20px;
+        *{
+            margin:20px 0;
+            text-shadow: 1px 1px 0px $secondary-color;
+        }
+        p,a{
+            font-size: 24px;
+        }
+        a{
+            border-radius: 20rem;
+            border:2px solid #fff;
+            padding:20px;
+            display: block;
+            text-align: center;
+        }
+    }
+    @include pad{
+        &{
+            justify-content: center;
+            .banner_descript{
+                width:100%;
+            }
+        }
+
+    }
+}
+
+.product_intro{
+    width: 100%;
+    padding: 50px;
+    .intro_block{
+        display:flex;
+        height: 50vw;
+        &:nth-child(odd){
+            flex-direction: row-reverse;
+            @include pad{ flex-direction: column;}
+        }
+        &:last-child{
+            height: 100vw;
+            @include pad{ 
+                height: auto;
+            }
+            
+        }
+        .intro_img{
+            flex: 0 0 50%;
+            img{
+                display: block;
+                max-width: 100%;
+                width:100%;
+                height: 100%;
+                object-fit: cover;
+                @include pad{
+                    height: 500px;
+                }
+            }
+        }
+        @include pad{
+            flex-direction: column;
+            height: auto;
+        }
+        
+    }
+
+
+
+}
+
+
+.intro_descrip{
+    flex: 0 0 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.intro_descrip *{
+    margin:20px 0;
+}
+
+.intro_descrip h3{
+    font-size: 2rem;
+}
+
+.intro_descrip p{
+    font-size: 1.25rem;
+}
+.intro_descrip span{
+    margin-top: auto;
+}
+
+.product_show{
+    // height: $full-vh;
+    display: flex;
+    padding: 4rem;
+    background-color: $third-color;
+    @include card-list-bs(10,33.3333%);
+    @include phone{
+        // height: auto;
+        flex-direction:column;
+
+        .card-list{
+            margin:20px 0;
+        }
+    }
+}
+
+.product_recycle{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    .col-7{
+        flex:1 1 500px;
+    }
+    .info{
+        flex:1 1 300px;
+        padding:1rem;
+        h3{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.descrip{
+    background: center / contain no-repeat url(https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80);
+    height: calc(100vh - #{$header-height});
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    form{
+        padding: 20px;
+        margin-bottom: 5rem;
+    }
+    label{
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #8D8D8D;
+        margin-bottom: 20px;
+    }
+
+    .descrip_info{
+        display:flex;
+        height: 56px;
+        border: 2px solid $primary-color;
+        border-radius: 0.25rem;
+        input[type=text]{
+            height: 100%; 
+            flex: 1;
+            background: #fff;
+            font-size: 20px;
+            line-height: 60px;
+            font-size: 1rem;
+            padding: 5px;
+        }
+        input[type=button]{
+            padding: 10px;
+            color:#fff;
+            background:$primary-color;
+        }
+    }
+}
+
+
+.product_list{
+    padding:20px;
+    display:flex;
+    flex-wrap: wrap; 
+    @include card-list-bs(10,25%);
+    @include phone{
+        @include card-list-bs(10, 100%/3);
+    }
+    @include mobile{
+        @include card-list-bs(10, 100%/2);
+    }
+}

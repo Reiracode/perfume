@@ -1,0 +1,21 @@
+*,body,html{
+    font-family: $main-font;
+    margin: 0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+// a,a:link,a:visited,a:focus,a:hover,a:active{
+a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+                <h1>
+                    <a href="./index.html">
+                        <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true" alt="perfume_logo"></h1>
+                    </a>
+                </h1>   
+        </div>
+        <ul class="navlink">
+            <li><a href="./product.html"><span class="material-icons ">store</span>Product</a></li>
+            <li><a href="#"><span class="material-icons ">person</span>Login</a></li>
+            <li><a href="#"><span class="material-icons ">favorite</span>Wishlist</a></li>
+            <li><a href="#"><span class="material-icons">shopping_cart</span>Cart</a></li>
+        </ul>
+        <ul class="mobile-navlink">
+            <li><a href="#"><span class="material-icons cart">shopping_cart</span></a></li>
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </ul>
+    </header>
+    <div class="wrap">
+        <ul class="navlink brand_catlog">
+            <li><a href="#">CHANEL</a></li>
+            <li><a href="#">Jo Malone</a></li>
+            <li><a href="#">Curology</a></li>
+            <li><a href="#">Dior</a></li>
+            <li><a href="#">Chloe</a></li>
+            <li><a href="#">ZARA</a></li>
+        </ul>
+    </div>
+
+        <section>
+            <div id="product_content" class="product_list">
+            </div>
+
+            <ul class="pagination">
+                <li><a href="#" target="_blank"><span class="material-icons">chevron_left</span></a></li>
+                <li class="current"><a href="#" target="_blank">1</a></li>
+                <li><a href="#" target="_blank">2</a></li>
+                <li><a href="#" target="_blank">3</a></li>          
+                <li><a href="#" target="_blank"><span class="material-icons">chevron_right</span></a></li>
+            </ul>
+
+
+        </section>
+
+
+        <section class="descrip"> 
+            <form action="">
+                <label for="desc_email">
+                    記得<br>
+                    訂閱以獲取更多資訊！
+                </label>
+                <div class="descrip_info">
+                    <input type="text" placeholder="your email address" id="desc_email">
+                    <input type="button" id="desc_email" value="Subscribe">
+                </div>
+            </form>  
+        </section>
+
+        <footer> 
+            <div class="logo">
+                <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfumewhite@2x.png?raw=true" alt="香水電商logo">
+            </div>
+            <span>© 2020. All Rights Reserved.</span>
+            <ul class="navlink">
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
+<script>
+var tbody = document.querySelector('#product_content');
+var img_link='https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/';
+var img_src =['products1.jpg?raw=true','index6.jpg?raw=true','products3.jpg?raw=true',
+            'products4.jpg?raw=true','products5.jpg?raw=true','index2.jpg?raw=true',
+            'products7.jpg?raw=true','products8.jpg?raw=true','index9.jpg?raw=true',
+            'products10.jpg?raw=true','products11.jpg?raw=true','products12.jpg?raw=true'];
+
+function render() {
+    let htmlString='';
+    img_src.forEach(function(item,i){
+        htmlString = htmlString + `<div class="card-list">
+                <div class='card-img'>
+                    <img  width='300' height='300' class='lazyload' data-src= ${ img_link }${ item }></div>
+                <div class='card-body'>
+                    <h3>Poppy & Barley</h3>
+                    <p>Jo Malone</p>
+                    <p>NT$1,380</p>
+                </div>
+        </div>`;
+    });    
+    tbody.innerHTML = htmlString;
+}
+render();
+lazyload();
+
+const navBar = document.querySelector('.menu');
+const dropNav = document.querySelector('ul.navlink');
+navBar.addEventListener('click', function(){
+    dropNav.classList.toggle('active');
+});
+
+
+</script>     
+</body>
+</html>

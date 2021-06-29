@@ -1,0 +1,32 @@
+// 字型
+$main-font: "SF Pro Text", "Microsoft JhengHei";
+
+// 主要色調
+$primary-color:#916000;
+$secondary-color:#8c8c8c;
+$third-color: #E0E0E0; 
+$space-color: #fff; 
+$header-height:80px;
+$full-vh:calc(100vh - #{$header-height});
+
+//字型大小
+.f-s-1{
+    font-size: 16px;
+    line-height: 24px;
+}
+.f-s-2{
+    font-size: 20px;
+    line-height: 30px;
+}
+.f-s-3{
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.d-f{
+    display: flex;
+}
+
+.full-section{
+    height: calc(100vh - 73px);
+}

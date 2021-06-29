@@ -1,0 +1,16 @@
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:20px;
+    .current{
+        border-bottom: 1px solid $primary-color;
+        // border-bottom: 1px;
+        // border-bottom-color: pink;
+    }
+
+    a{
+        padding:10px 20px;
+        color:$primary-color;
+    }
+}

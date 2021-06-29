@@ -1,0 +1,49 @@
+@mixin bg-opacity($color, $opacity) {
+    background: rgba($color, $opacity);
+}
+/* // tips:響應式圖片設計，建議 img 設定 max-width: 100%、height: auto。參考文件
+// .wrap 的寬度不建議設定 width:100%; ，設定 100% 會導致每個螢幕解析度看到的寬度都不一樣，可能導致某些螢幕上可讀性較差，建議設定一個固定的 px 後在使用 margin: 0 auto; 置中 ，height:100%; 也可以拿掉唷。
+// 3xx px，出現橫軸，是由 .sidemenu figure 所導致，這邊可以不需寫死寬度，至適應父元素寬
+// <footer> 內的文字 Copyright© 2021 建議外層也包上 p 標籤。 */
+
+// @mixin set-card($gap, $percent) {
+//     display: flex;
+//     margin: 0 -#{$gap}px;
+//     > div {
+//         flex: 0 0 $percent;
+//         .gap {
+//         padding: 0 #{$gap}px;
+//         }
+//     }
+// }
+
+@mixin card-list-bs($gap, $percent) {
+    >.card-list {
+        margin: 0 #{$gap}px;
+        flex: 0 0 calc(#{$percent} - #{$gap*2}px);
+    }
+}
+
+@mixin column-basis-style($gap, $percent) {
+    margin: 0 #{$gap}px;
+    flex: 0 0 calc(#{$percent} - #{$gap*2}px);
+}
+
+@mixin pad {
+    @media (max-width:992px) {
+        @content;
+    }
+}
+
+
+@mixin phone {
+    @media (max-width:767px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width:480px) {
+        @content;
+    }
+}
