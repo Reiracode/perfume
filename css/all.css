@@ -97,6 +97,7 @@ header {
 @media (max-width: 767px) {
   .logo img {
     max-width: 100px;
+    height: 30px;
   }
 }
 
