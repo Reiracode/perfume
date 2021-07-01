@@ -94,6 +94,12 @@ header {
   display: block;
 }
 
+@media (max-width: 767px) {
+  .logo img {
+    max-width: 100px;
+  }
+}
+
 .navlink {
   display: -webkit-box;
   display: -ms-flexbox;

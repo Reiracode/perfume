@@ -13,6 +13,9 @@ header{
 .logo img{
     max-width: 138px;
     display: block;
+    @include phone{
+        max-width: 100px;
+    }
 }
 .navlink{
     display: flex;
