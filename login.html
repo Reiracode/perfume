@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log in</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true" alt="perfume_logo">
+                </a>
+            </h1> 
+        </div>
+        
+        <ul class="navlink">
+            <li><a href="./product.html"><span class="material-icons ">store</span>Product</a></li>
+            <li><a href="./login.html"><span class="material-icons ">person</span>Login</a></li>
+            <li><a href="#"><span class="material-icons ">favorite</span>Wishlist</a></li>
+            <li><a href="#"><span class="material-icons">shopping_cart</span>Cart</a></li>
+        </ul>
+        <ul class="mobile-navlink">
+            <li><a href="#"><span class="material-icons cart">shopping_cart</span></a></li>
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </ul>
+    </header>
+
+    <div class="wrap  full-section">
+    
+        <section class="product_recycle d-flex">
+            <div class="recycle_img">
+                <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/login1.jpg?raw=true" alt="">
+            </div>
+
+            <div class="recycle_info">
+                <h3>Log in</h3>
+                <form class="login_form">
+                    <label for="account">帳號</label>
+                    <input type="email" class="form-control" id="account" placeholder="email@example.com">
+
+                    <label for="ac_pwd">密碼</label>
+                    <input type="password" class="form-control" id="ac_pwd" placeholder="Password">
+                </form>
+
+                <div></div>
+                <span>忘記密碼</span>
+                <button class="login_btn">註冊</button> <button class="login_btn">登入</button>
+            </div>    
+
+
+        </section>
+
+        <footer> 
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfumewhite@2x.png?raw=true" alt="香水電商logo">
+                </a>
+            </div>
+            <span>© 2020. All Rights Reserved.</span>
+            <ul class="navlink">
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+<script>
+// navBar
+const navBar = document.querySelector('.menu');
+const dropNav = document.querySelector('ul.navlink');
+navBar.addEventListener('click', function(){
+    dropNav.classList.toggle('active');
+});
+
+
+
+
+</script>  
+</body>
+</html>

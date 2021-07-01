@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log in</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true" alt="perfume_logo">
+                </a>
+            </h1> 
+        </div>
+        
+        <ul class="navlink">
+            <li><a href="./product.html"><span class="material-icons ">store</span>Product</a></li>
+            <li><a href="./login.html"><span class="material-icons ">person</span>Login</a></li>
+            <li><a href="#"><span class="material-icons ">favorite</span>Wishlist</a></li>
+            <li><a href="#"><span class="material-icons">shopping_cart</span>Cart</a></li>
+        </ul>
+        <ul class="mobile-navlink">
+            <li><a href="#"><span class="material-icons cart">shopping_cart</span></a></li>
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </ul>
+    </header>
+
+    <div class="wrap">
+            <ul class="navlink brand_catlog">
+                <li><a href="#">CHANEL</a></li>
+                <li><a href="#">Jo Malone</a></li>
+                <li><a href="#">Curology</a></li>
+                <li><a href="#">Dior</a></li>
+                <li><a href="#">Chloe</a></li>
+                <li><a href="#">ZARA</a></li>
+            </ul>
+    
+        <section class="member">
+            <div class="side_menu">
+                <h3>會員中心</h3>
+                <ul>
+                    <li class="active"><a href="#">會員資料修改</a></li>
+                    <li><a href="#">訂單查詢</a></li>
+                    <li><a href="#">退／換貨申請</a></li>
+                </ul>
+            </div>
+            <div class="member_form">
+                <h4>個人資料修改</h4>
+<form action="">
+    <div class="form_control">
+        <label for="email@example.com">會員帳號</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for="">會員姓名</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for="">會員性別</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for="">Email</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for="">聯絡地址</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for="">配送地址</label>
+        <input type="text">
+    </div>
+
+    <div class="form_control">
+        <label for=""></label>
+        <input type="text">
+    </div>
+</form>
+  
+
+ 
+
+
+
+
+
+
+                <h4>修改密碼</h4>
+
+            </div>
+            <div class="member_info">
+                <table class="flex-table" id="customers">
+                <thead>
+                    <tr><th>會員編碼</th></tr>
+                    <tr><th>購物車</th></tr>
+                    <tr><th>我的收藏</th></tr>
+                    <tr><th>完成訂單</th></tr>
+                    <tr><th>會員紅利</th></tr>
+                    <tr><th>邀請碼</th></tr>  
+                </thead>
+
+                <tbody>
+                    <tr><td>0002080615</td></tr>
+                    <tr><td>56</th></tr>
+                    <tr><td>23</th></tr>
+                    <tr><td>8</th></tr>
+                    <tr><td>2680</th></tr>
+                    <tr><td>TK2075</th></tr>  
+                </tbody>
+            </table>
+                    
+
+             <p>新戶輸入邀請碼即可獲贈紅利點數1000點  </p>
+
+
+
+            </div>
+
+
+        </section>
+
+        <footer> 
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfumewhite@2x.png?raw=true" alt="香水電商logo">
+                </a>
+            </div>
+            <span>© 2020. All Rights Reserved.</span>
+            <ul class="navlink">
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+<script>
+// navBar
+const navBar = document.querySelector('.menu');
+const dropNav = document.querySelector('ul.navlink');
+navBar.addEventListener('click', function(){
+    dropNav.classList.toggle('active');
+});
+
+
+
+
+</script>  
+</body>
+</html>
