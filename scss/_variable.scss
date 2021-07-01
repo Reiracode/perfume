@@ -6,7 +6,7 @@ $primary-color:#916000;
 $secondary-color:#8c8c8c;
 $third-color: #E0E0E0; 
 $space-color: #fff; 
-$header-height:80px;
+$header-height:50px;
 $full-vh:calc(100vh - #{$header-height});
 
 //字型大小
@@ -22,11 +22,20 @@ $full-vh:calc(100vh - #{$header-height});
     font-size: 24px;
     line-height: 36px;
 }
+ 
 
-.d-f{
+.d-flex{
+    flex:1;
+}
+.full-section{
+    height: calc(100vh - #{$header-height});
     display: flex;
+    flex-direction: column;
 }
 
-.full-section{
-    height: calc(100vh - 73px);
+
+.flex-table{
+    display:flex;
+    // flex-direction: row;
+
 }

@@ -240,3 +240,121 @@ section[class^="product"]:not(.product_show) {
         @include card-list-bs(10, 100%/2);
     }
 }
+
+
+
+
+
+
+.login_btn{
+    background-color:$primary-color;
+    color:#fff;
+    .active{
+        background-color:#fff;
+        color:$primary-color;
+
+    }
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 400px);
+    grid-gap: 10px;
+}
+
+.box1 {
+    grid-row-start: span 1;
+    grid-column-start: span 2;
+}
+
+
+.add_tocart{
+    display: flex;
+    width: 100%;
+    input{
+        font-size: 16px;
+        padding: 10px;
+        border:1px solid $primary-color;
+        // width: 100%;
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        flex:1;
+    }
+    button{
+        padding: 10px;
+        background-color: $primary-color;
+        color:#fff;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+    }
+    a{
+        padding: 10px;
+        background-color: $primary-color;
+        color:#fff;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+
+.member{
+    display: flex;
+    padding: 20px;
+
+    .side_menu{
+        @include column-basis-style(0,15%);
+        flex-direction: column;
+        h3{
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+        }
+
+        li a{
+            // display: inline-block;
+            // font-weight: 500;
+            padding: 10px 0;
+            font-size: 16px;
+            line-height: 24px;
+            color: #848484;
+            border-bottom: 2px solid transparent;
+        }
+        li.active{
+            border-bottom: 2px solid $primary-color;
+        }
+    }
+    .member_form{
+        flex:1;
+        margin:0 50px;
+        .form_control{
+            display:flex;
+            margin: 10px 0;
+        }
+        label{
+            min-width: 80px;
+        }
+        input{
+            color:#8D8D8D;
+        }
+
+    }
+    .member_info{
+        @include column-basis-style(0,25%);
+        table{
+            th{
+                font-size: 16px;
+                font-weight: inherit;
+                text-align: left;
+                margin-right: 10px;
+            }
+        }
+    }    
+}

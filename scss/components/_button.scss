@@ -1,9 +1,14 @@
 button{
     display: flex;
     align-items: center;
+    border: none;
+    outline: none;
+    padding:1rem;
+    border-radius: 6px;
 }
 
 .button-b-r{
     border-radius: 2rem;
     padding: 20px;
 }
+

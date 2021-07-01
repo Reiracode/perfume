@@ -10,15 +10,16 @@
 <body>
     <header>
         <div class="logo">
-                <h1>
-                    <a href="./index.html">
-                        <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true" alt="perfume_logo"></h1>
-                    </a>
-                </h1>   
+            <h1>
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true" alt="perfume_logo">
+                </a>
+            </h1> 
         </div>
+        
         <ul class="navlink">
             <li><a href="./product.html"><span class="material-icons ">store</span>Product</a></li>
-            <li><a href="#"><span class="material-icons ">person</span>Login</a></li>
+            <li><a href="./login.html"><span class="material-icons ">person</span>Login</a></li>
             <li><a href="#"><span class="material-icons ">favorite</span>Wishlist</a></li>
             <li><a href="#"><span class="material-icons">shopping_cart</span>Cart</a></li>
         </ul>
@@ -72,7 +73,9 @@
 
         <footer> 
             <div class="logo">
-                <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfumewhite@2x.png?raw=true" alt="香水電商logo">
+                <a href="./index.html">
+                    <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfumewhite@2x.png?raw=true" alt="香水電商logo">
+                </a>
             </div>
             <span>© 2020. All Rights Reserved.</span>
             <ul class="navlink">
@@ -83,7 +86,6 @@
         </footer>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
- 
 <script>
 var tbody = document.querySelector('#product_content');
 var img_link='https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/';
@@ -95,13 +97,16 @@ var img_src =['products1.jpg?raw=true','index6.jpg?raw=true','products3.jpg?raw=
 function render() {
     let htmlString='';
     img_src.forEach(function(item,i){
-        htmlString = htmlString + `<div class="card-list">
+        htmlString = htmlString + `
+        <div class="card-list">
                 <div class='card-img'>
-                    <img  width='300' height='300' class='lazyload' data-src= ${ img_link }${ item }></div>
+                    <img  width='300' height='300' class='lazyload' data-src= ${ img_link }${ item } alt="product_list">
+                </div>
                 <div class='card-body'>
                     <h3>Poppy & Barley</h3>
                     <p>Jo Malone</p>
                     <p>NT$1,380</p>
+                   <p><del cite="https://www.techonthenet.com">This text has been deleted</del> but this text has not.</p>
                     <span class="material-icons ">favorite</span>
                     <span class="material-icons ">shopping_cart</span>
                 </div>
@@ -118,7 +123,6 @@ const dropNav = document.querySelector('ul.navlink');
 navBar.addEventListener('click', function(){
     dropNav.classList.toggle('active');
 });
-
 
 </script>     
 </body>
