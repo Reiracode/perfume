@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// @import url('https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css');
+// @import url('https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js');
+
 @import "mixin";
 @import "variable";
 
 @import "base";
 
 @import "./layout/navbar";
+
 @import "./components/card";
 @import "./components/form";
-
 @import "./components/pagination";
 @import "./components/button";
+
 @import "./pages/product";
+@import "./pages/main";
 
-@import "main";
-
+@import "./utilies/setting";
 
 // https://github.com/chunchun126/perfume_shop/blob/main/app/assets/style/base/_base.scss
 

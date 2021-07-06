@@ -5,45 +5,7 @@
 // .wrap 的寬度不建議設定 width:100%; ，設定 100% 會導致每個螢幕解析度看到的寬度都不一樣，可能導致某些螢幕上可讀性較差，建議設定一個固定的 px 後在使用 margin: 0 auto; 置中 ，height:100%; 也可以拿掉唷。
 // 3xx px，出現橫軸，是由 .sidemenu figure 所導致，這邊可以不需寫死寬度，至適應父元素寬
 // <footer> 內的文字 Copyright© 2021 建議外層也包上 p 標籤。 */
-.f-s-1 {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.f-s-2 {
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.f-s-3 {
-  font-size: 24px;
-  line-height: 36px;
-}
-
-.d-flex {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.full-section {
-  height: calc(100vh - 50px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.flex-table {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-*, body, html {
+*, body, html, input {
   font-family: "SF Pro Text", "Microsoft JhengHei";
   margin: 0;
   padding: 0;
@@ -53,6 +15,7 @@
   border: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border: none;
 }
 
 a {
@@ -89,16 +52,13 @@ header {
   z-index: 1;
 }
 
-.logo img {
-  max-width: 138px;
-  display: block;
-}
-
-@media (max-width: 767px) {
-  .logo img {
-    max-width: 100px;
-    height: 30px;
-  }
+.logo a {
+  background: center/contain no-repeat url(https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true);
+  width: 130px;
+  height: 50px;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .navlink {
@@ -135,8 +95,8 @@ header {
     width: 100%;
     max-height: 0px;
     overflow: hidden;
-    -webkit-transition: all .3s ease-in;
-    transition: all .3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
   }
   .navlink.active {
     max-height: 300px;
@@ -205,15 +165,16 @@ header {
   margin: 5px 0;
   height: 1px;
   background-color: #8c8c8c;
-  -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .mobile-navlink .menu:hover span:nth-child(2) {
   opacity: 0;
 }
 
-.mobile-navlink .menu:hover span:nth-child(1), .mobile-navlink .menu:hover span:nth-child(3) {
+.mobile-navlink .menu:hover span:nth-child(1),
+.mobile-navlink .menu:hover span:nth-child(3) {
   width: 100%;
   position: absolute;
   left: 1px;
@@ -263,10 +224,19 @@ footer .navlink a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 540px;
+}
+
+@media (max-width: 480px) {
+  .card-list {
+    height: 350px;
+  }
 }
 
 .card-list .card-img {
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
 
 .card-list .card-img img {
@@ -276,15 +246,37 @@ footer .navlink a {
      object-fit: cover;
   -o-object-position: bottom;
      object-position: bottom;
-  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-list .card-img:hover img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.card-list .card-img::before {
+  content: "MORE";
+  width: 100%;
+  height: 100%;
+  background-color: #b1a8a8a6;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  -webkit-transition: -webkit-transform .3s ease-in;
+  transition: -webkit-transform .3s ease-in;
+  transition: transform .3s ease-in;
+  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
+}
+
+.card-list .card-img:hover::before {
+  background-color: #2e2d2da6;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .card-list .card-body {
@@ -411,7 +403,7 @@ button {
 
 .wrap {
   font-family: "SF Pro Text", "Microsoft JhengHei";
-  margin: 50px auto 0 auto;
+  margin: 60px auto 0 auto;
 }
 
 section[class^="product"]:not(.product_show) {
@@ -419,7 +411,7 @@ section[class^="product"]:not(.product_show) {
 }
 
 .banner {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   background: center/cover no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -650,7 +642,7 @@ section[class^="product"]:not(.product_show) {
 }
 
 .subscribe {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -667,7 +659,7 @@ section[class^="product"]:not(.product_show) {
   left: 0;
   z-index: -1;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   background: center/cover no-repeat url(https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80);
 }
 
@@ -702,6 +694,8 @@ section[class^="product"]:not(.product_show) {
   line-height: 60px;
   font-size: 1rem;
   padding: 5px;
+  outline: none;
+  border: none;
 }
 
 .subscribe .subscr_info .subscr_button {
@@ -749,6 +743,35 @@ section[class^="product"]:not(.product_show) {
         -ms-flex: 0 0 calc(50% - 20px);
             flex: 0 0 calc(50% - 20px);
   }
+}
+
+.product_list .card-list {
+  height: 350px;
+}
+
+#overlay {
+  position: fixed;
+  /* Sit on top of the page content */
+  display: none;
+  /* Hidden by default */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+}
+
+#overlay.active {
+  display: block;
 }
 
 .login_btn {
@@ -893,5 +916,55 @@ section[class^="product"]:not(.product_show) {
   font-weight: inherit;
   text-align: left;
   margin-right: 10px;
+}
+
+[data-aos="new-animation"] {
+  opacity: 0;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+}
+
+[data-aos="new-animation"].aos-animate {
+  opacity: 1;
+}
+
+.f-s-1 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.f-s-2 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.f-s-3 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.d-flex {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.full-section {
+  height: calc(100vh - 60px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=all.css.map */
