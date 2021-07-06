@@ -1,0 +1,30 @@
+//字型大小
+.f-s-1{
+    font-size: 16px;
+    line-height: 24px;
+}
+.f-s-2{
+    font-size: 20px;
+    line-height: 30px;
+}
+.f-s-3{
+    font-size: 24px;
+    line-height: 36px;
+}
+ 
+
+.d-flex{
+    flex:1;
+}
+.full-section{
+    height: calc(100vh - #{$header-height});
+    display: flex;
+    flex-direction: column;
+}
+
+
+.flex-table{
+    display:flex;
+    // flex-direction: row;
+
+}
