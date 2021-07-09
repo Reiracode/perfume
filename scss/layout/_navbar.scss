@@ -8,25 +8,19 @@ header {
   width: 100%;
   padding: 5px 10px;
   z-index: 1;
+  .logo a{
+    background: center/contain no-repeat
+      url(https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true);
+    width: 130px;
+    height: 50px;
+    text-indent: 101%;  
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
-// .logo img{
-//     max-width: 138px;
-//     display: block;
-//     @include phone{
-//         max-width: 100px;
-//         height: 30px;
-//     }
-// }
-.logo a{
-  background: center/contain no-repeat
-    url(https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true);
-  width: 130px;
-  height: 50px;
-  text-indent: 101%;  
-  overflow: hidden;
-  white-space: nowrap;
-}
+
+
 .navlink {
   display: flex;
   a {
@@ -37,6 +31,10 @@ header {
     position: relative;
     color: $secondary-color;
     font-size: 1.2rem;
+    transition: all .3s;
+    &:hover,&:focus{
+      color:$primary-color;
+    }
   }
   @include phone {
     flex-direction: column;
@@ -56,17 +54,17 @@ header {
     .material-icons {
       display: none;
     }
-    li {
-      background-color: $secondary-color;
-    }
-    li:hover {
-      background-color: $primary-color;
-    }
     a {
+      background-color: $secondary-color;
       padding: 10px;
       color: $space-color;
       border-bottom: 1px solid $space-color;
+      &:hover{
+          color:#fff;
+          background-color: $primary-color;
+        }
     }
+    
   }
 }
 
@@ -82,8 +80,8 @@ header {
   }
   .menu {
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -91,12 +89,12 @@ header {
     position: relative;
     span {
       width: 100%;
-      margin: 5px 0;
+      margin: 4px 0;
       height: 1px;
       background-color: $secondary-color;
       transition: all 0.3s ease-out;
     }
-    &:hover {
+    &.active {
       span:nth-child(2) {
         opacity: 0;
       }
@@ -115,11 +113,12 @@ header {
     }
   }
 }
+ 
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 0 10px;
   color: #fff;
   width: 100%;
   background: $primary-color;
@@ -130,6 +129,14 @@ footer {
   .navlink {
     @include phone {
       display: none;
+    }
+  }
+  .logo img{
+    max-width: 120px;
+    display: block;
+    @include phone{
+        max-width: 100px;
+        height: 30px;
     }
   }
 }

@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log in</title>
-    <link rel="stylesheet" href="./css/all.css">
+        <title>Perfume</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="./css/all.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>  
+        <script src="./js/all.js"></script>
 </head>
 <body>
     <header>
         <h1 class="logo">
-            <a href="./index.html">Perfume香水電商網站</a>
+            <a href="./index.html">Perfume</a>
         </h1>
         
         <ul class="navlink">
@@ -28,30 +32,29 @@
             </div>
         </ul>
     </header>
-
-    <div class="wrap  full-section">
-    
+    <div class="wrap  full-section">  
         <section class="product_recycle d-flex">
-            <div class="recycle_img">
+            <div class="recycle_img" data-aos="fade-down" data-aos-duration="3000">
                 <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/login1.jpg?raw=true" alt="">
             </div>
 
             <div class="recycle_info">
                 <h3>Log in</h3>
-                <form class="login_form">
+                <form class="login_form" id="login_form">
                     <label for="account">帳號</label>
-                    <input type="email" class="form-control" id="account" placeholder="email@example.com">
+                    <input type="email" name="Email" class="form-control" id="account" placeholder="email@example.com" data-message="Email"> 
 
                     <label for="ac_pwd">密碼</label>
-                    <input type="password" class="form-control" id="ac_pwd" placeholder="Password">
+                    <input type="password" name="Password" class="form-control" id="ac_pwd" placeholder="Password" data-message="Password">
                 </form>
 
-                <div></div>
-                <span>忘記密碼</span>
-                <button class="login_btn">註冊</button> <button class="login_btn">登入</button>
+                <div class="login_status">
+                    <span>忘記密碼</span>
+                    <a class="border_btn">註冊</a>
+                    <a class="border_btn active" id="login">登入</a> 
+                    <!-- <input type="button" value="送出預訂資料" class="orderInfo-btn"> -->
+                </div>  
             </div>    
-
-
         </section>
 
         <footer> 
@@ -68,17 +71,106 @@
             </ul>
         </footer>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 <script>
-// navBar
-const navBar = document.querySelector('.menu');
-const dropNav = document.querySelector('ul.navlink');
-navBar.addEventListener('click', function(){
-    dropNav.classList.toggle('active');
+AOS.init();
+// --- 送出預訂資料 ---
+var loginBtn  = document.querySelector('#login');
+var loginForm  = document.querySelector('#login_form');
+loginBtn.addEventListener('click', () => {
+    // if (cartsDataLength < 1) {
+    //     alert('購物車內沒有商品');
+    //     return;
+    // }
+
+  // --- 表單驗證 ---
+    const constraints = {
+    'Email': {
+        presence: {message: '是必填欄位' },
+        email: {message: '格式錯誤' } }
+    };
+
+    const errors = validate(loginForm, constraints);
+
+    if (errors) {
+        for (var v in errors) {
+            if (errors.hasOwnProperty(v)) {
+                alert(errors[v][0]);
+                document.querySelector(`input[name=${v}]`).focus();
+                break;
+            }
+        }
+        return;
+    }
+
+    // --- 表單驗證 ---
+    const elementsArr = Array.from(loginForm.elements);
+    console.log(elementsArr);
+    console.log(elementsArr[0].value.trim())  
+    console.log(elementsArr[1].value.trim())  
+
+// $.ajax({
+//     url: "https://reqres.in/api/login",
+//     type: "POST",
+//     dataType: 'json',
+//     async: false,
+//     data: {
+//         "email": "eve.holt@reqres.in",
+//         "password": "cityslicka"
+//     },
+//     success: function(response){
+//         console.log(response);
+//         //  window.location.href = "./member.html";
+//     }
+// });
+
+
+var data = 
+        {"email": elementsArr[0].value.trim(),    
+        "password": elementsArr[1].value.trim()
+    }
+console.log(data)
+var headers = {
+    "Content-Type": "application/json",                                                                                                
+    "Access-Control-Origin": "*"
+}
+
+    fetch("https://reqres.in/api/login", {
+        method: 'POST',
+        headers: headers,
+        mode: 'cors',
+        body: JSON.stringify(data)
+    })
+// -------------------------------
+    .then(response => response.json())
+    // .then((responseJson) => console.log(responseJson)
+    .then((responseJson) => {
+        console.log(responseJson)
+        if (responseJson.token) {
+            console.log("fetch was succesfull!");
+            window.location.href = "./member.html";
+        } else {
+            console.log(responseJson.error);
+            // response.message could be used to show what was wrong
+            throw new Error(responseJson.error);
+        }
+    })
+    .catch(error => console.log(error));
+
+// -------------------------------
+// .then(function(response){ 
+//     return response.json();  
+// })
+// .then(function(data){ 
+//     console.log(data)
+// }).catch(error => console.log(error));
+
+// -------------------------------
+
+
+
 });
 
-
-
-
-</script>  
+</script>
 </body>
 </html>

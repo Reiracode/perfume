@@ -1,10 +1,12 @@
 button{
     display: flex;
     align-items: center;
+    justify-content: center;
     border: none;
     outline: none;
     padding:1rem;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .button-b-r{
@@ -12,3 +14,18 @@ button{
     padding: 20px;
 }
 
+
+.border_btn{
+    padding:10px 20px;
+    background-color:$primary-color;
+    border:1px solid transparent;
+    color:#fff;
+    border-radius: 6px;
+    display: inline-flex;
+
+    &.active,&:hover{
+        background-color:#fff;
+        border:1px solid $primary-color;
+        color:$primary-color;
+    }
+}

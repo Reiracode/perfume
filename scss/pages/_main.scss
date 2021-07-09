@@ -1,4 +1,3 @@
- 
 .wrap{
     font-family: $main-font;
     margin: #{$header-height} auto 0 auto;
@@ -11,32 +10,18 @@ section[class^="product"]:not(.product_show) {
 .banner{
     height: $full-vh;
     background: center / cover no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
-    // background-attachment: fixed;
-    // background-size: cover;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    // &::before{
-    //     content:"";
-    //     display:block;
-    //     position:fixed;
-    //     top:0;
-    //     left:0;
-    //     z-index:-9;
-    //     width:100%;
-    //     height: $full-vh;
-    //     margin-top:$header-height;
-    //     background: center / cover no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);    
-    // }
     .banner_descript{
         color:#fff;
         width:50%;
-        padding: 20px;
+        padding: 3rem;
         *{
             margin:20px 0;
         }
         h2{
-            font-size: 2rem;
+            font-size: 2.6rem;
         }
         p,a{
             font-size: 24px;
@@ -44,10 +29,19 @@ section[class^="product"]:not(.product_show) {
         a{
             border-radius: 20rem;
             border:2px solid #fff;
-            padding:20px;
+            padding:10px;
             display: block;
             text-align: center;
+            transition: all .3s;
+            width: 300px;
+            box-shadow: 3px 4px 0px transparent;
+            &:hover{
+                background:rgba(255, 255, 255, 0.657);
+                box-shadow: 3px 4px 0px #fff;
+                color:$primary-color;
+            }
         }
+
     }
     @include pad{
         &{
@@ -103,7 +97,6 @@ section[class^="product"]:not(.product_show) {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     justify-content: center;
     *{
         margin:20px 0;
@@ -121,22 +114,29 @@ section[class^="product"]:not(.product_show) {
     a{
         color:inherit;
         border: 1px solid;
+        transition: all .3s;
+        box-shadow: 3px 4px 0px transparent;
+        &:hover{
+            color:inherit;
+            border: 1px solid;
+            box-shadow: 3px 4px 0px $primary-color;
+        }
     }
+
 }
- 
+
+
 .product_show{
-    // height: $full-vh;
     display: flex;
     padding: 4rem;
     background-color: $third-color;
     @include card-list-bs(10,33.3333%);
- 
+
     @include phone{
         // height: auto;
         flex-direction:column;
         .card-list{
-            margin:20px 0;
-    
+            margin:20px 0;  
         }
     }
 }
@@ -169,6 +169,7 @@ section[class^="product"]:not(.product_show) {
             color:$primary-color;
             display: inline-block;
             margin: 20px 0;
+            flex:1;
         }
     }
 
@@ -247,36 +248,22 @@ section[class^="product"]:not(.product_show) {
     .card-list{
         height: 350px;
     }
-   
 }
+
 #overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  &.active{
-      display:block;
-  }
-}
-
-
-
-
-
-.login_btn{
-    background-color:$primary-color;
-    color:#fff;
-    .active{
-        background-color:#fff;
-        color:$primary-color;
-
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    &.active{
+        display:block;
     }
 }
 
@@ -330,29 +317,33 @@ section[class^="product"]:not(.product_show) {
 .member{
     display: flex;
     padding: 20px;
-
     .side_menu{
         @include column-basis-style(0,15%);
+        max-width: 130px;
         flex-direction: column;
         h3{
             text-align: center;
+            margin: 10px 0;
         }
         ul{
             display: flex;
             flex-direction: column;
         }
-
-        li a{
-            // display: inline-block;
-            // font-weight: 500;
-            padding: 10px 0;
-            font-size: 16px;
-            line-height: 24px;
-            color: #848484;
-            border-bottom: 2px solid transparent;
-        }
-        li.active{
-            border-bottom: 2px solid $primary-color;
+        li{  
+            a{
+                padding: 10px 0;
+                font-size: 16px;
+                line-height: 24px;
+                color: #848484;
+                border-left: 2px solid transparent;
+                &.active,&:hover{
+                    border-left: 2px solid $primary-color;
+                    @include pad{
+                        color:$primary-color;
+                        border-left: 2px solid transparent;             
+                    }
+                }
+            }
         }
     }
     .member_form{
@@ -360,27 +351,93 @@ section[class^="product"]:not(.product_show) {
         margin:0 50px;
         .form_control{
             display:flex;
+            align-items:baseline;
             margin: 10px 0;
+            .forms_input_group{
+                flex:1;
+            }
+            .tw-city-selector{
+                display: flex;
+                margin-bottom: 10px;
+            }
+            .lb_check{
+                align-items: center;
+                p{
+                    font-size: 1rem;
+                }
+            }
+            .checkbox+span {
+                display: none;
+            }
+            .checkbox.checked {
+                display: none;
+            }                   
+            .checkbox.checked + span {
+                display: inline-block;
+                text-align: center;
+                width: 20px;
+                height: 20px;
+                color: $primary-color;
+                font-size: 16px;
+                margin: 10px;
+            }
         }
         label{
             min-width: 80px;
+            display: flex;
+            align-items: center;
         }
         input{
             color:#8D8D8D;
         }
 
+        h4{
+            padding:10px 0;
+            border-bottom: 1px solid black;
+        }
+        button{
+            width:100px;
+            align-self: flex-end;
+        }
+        @include pad{
+            margin:0;
+        }
+
     }
     .member_info{
-        @include column-basis-style(0,25%);
-        table{
-            th{
-                font-size: 16px;
-                font-weight: inherit;
-                text-align: left;
-                margin-right: 10px;
-            }
+        @include column-basis-style(10,25%);
+        a{
+            justify-content:flex-start;
+        }
+        span{
+            // font-size: 0.9rem;
+            color:$secondary-color;
+        }
+        .material-icons {
+            display: grid;
+            place-items: center;
         }
     }    
+    @include pad{
+        flex-direction: column;
+        .side_menu{
+            max-width: 100%;
+            ul{
+                flex-direction: row;
+                justify-content:space-between;
+                li{
+                    padding: 0 20px;
+                }
+            }
+        }
+        .member_info{
+            margin:0 0px;
+            order:1;
+        }
+        .member_form{
+            order:2;
+        }
+    }
 }
 
 
@@ -393,3 +450,11 @@ section[class^="product"]:not(.product_show) {
     opacity: 1;
 }
 
+
+// login
+.login_status{
+    margin:20px 0;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

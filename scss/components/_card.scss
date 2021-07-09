@@ -15,30 +15,7 @@
             object-fit: cover;
             object-position: bottom;        
         }
-        &::before{
-            content: "MORE";
-            width: 100%;
-            height: 0%;
-            background-color: #b1a8a8a6;
-            position: absolute;
-            bottom: 0%;
-            left: 0%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;  
-            transition: all .3s;
-            
-        }
-        &:hover::before{
-                background-color: #2e2d2da6;
-                height: 100%;
-        }
-        
     }
-
-
     .card-body {
         background:$space-color;
         flex-grow: 1;
@@ -50,6 +27,7 @@
 }
 
 
+// SOLD OUT
 .card-cover{
     position: relative;
     &::after {
@@ -69,10 +47,3 @@
 }
 
 
-// two column 
-.col-2{
-    display:flex;
-    div{
-        @include column-basis-style(0,50%);
-    }
-}

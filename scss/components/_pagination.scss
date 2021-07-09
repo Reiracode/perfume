@@ -12,5 +12,8 @@
     a{
         padding:10px 20px;
         color:$primary-color;
+        &:hover,&:focus{
+            color:$secondary-color;
+        }
     }
 }

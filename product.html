@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="./css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>  
     <script src="./js/all.js"></script>
 </head>
@@ -41,12 +41,10 @@
             <li><a href="#">Chloe</a></li>
             <li><a href="#">ZARA</a></li>
         </ul>
- 
-<!-- data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in" -->
+
         <div id="overlay"></div>
         <section class="products">
             <div id="product_content" class="product_list" ></div>
-
             <ul class="pagination">
                 <li><a href="#" target="_blank"><span class="material-icons">chevron_left</span></a></li>
                 <li class="current"><a href="#" target="_blank">1</a></li>
@@ -54,19 +52,17 @@
                 <li><a href="#" target="_blank">3</a></li>          
                 <li><a href="#" target="_blank"><span class="material-icons">chevron_right</span></a></li>
             </ul>
-
         </section>
 
-
         <section class="subscribe"> 
-            <form action="">
+            <form data-aos="fade-up" data-aos-duration="2000">
                 <label for="subscr_email">
                     記得<br>
                     訂閱以獲取更多資訊！
                 </label>
                 <div class="subscr_info">
                     <input type="text" placeholder="your email address" id="subscr_email">
-                    <a href="#" class="subscr_button">Button</a>
+                    <a href="#" class="subscr_button">Subscribe</a>
                 </div>
             </form>  
         </section>
@@ -85,11 +81,8 @@
             </ul>
         </footer>
     </div>
-<!-- <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
 <script>
-
+AOS.init(); 
 var tbody = document.querySelector('#product_content');
 var img_link='https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/';
 var img_src =['products1.jpg?raw=true','index6.jpg?raw=true','products3.jpg?raw=true',
@@ -102,16 +95,14 @@ function displayCardlist() {
     img_src.forEach(function(item,i){
         htmlString = htmlString + `
         <div class="card-list">
-                <div class='card-img' >
-                    <img  style="width: 300px; height: 300px;"  src= ${ img_link }${ item } alt="product_list">
-                </div>
-                <div class='card-body'>
-                    <h3>Poppy & Barley</h3>
-                    <p>Jo Malone</p>
-                    <p>NT$1,380</p>
-                    <span class="material-icons ">favorite</span>
-                    <span class="material-icons ">shopping_cart</span>
-                </div>
+            <div class='card-img' >
+                <img  style="width: 300px; height: 300px;"  src= ${img_link}${item} alt="product_list">
+            </div>
+            <div class='card-body'>
+                <h3>Poppy & Barley</h3>
+                <p>Jo Malone</p>
+                <p>NT$1,380</p>
+            </div>
         </div>`;
     });    
     tbody.innerHTML = htmlString;

@@ -1,4 +1,4 @@
-//字型大小
+//font-size
 .f-s-1{
     font-size: 16px;
     line-height: 24px;
@@ -11,11 +11,15 @@
     font-size: 24px;
     line-height: 36px;
 }
- 
+//flex
+.d-f{
+    display:flex;
+}
 
 .d-flex{
     flex:1;
 }
+// layout - full
 .full-section{
     height: calc(100vh - #{$header-height});
     display: flex;
@@ -23,8 +27,22 @@
 }
 
 
-.flex-table{
-    display:flex;
-    // flex-direction: row;
+.mb-3{
+    width:30%;
+    text-align: left;
+    justify-content: flex-start;
+}
 
+.mb-5{
+    width:50%;
+    text-align: left;
+    justify-content: flex-start;
+}
+
+// two column 
+.col-2{
+    display:flex;
+    div{
+        @include column-basis-style(0,50%);
+    }
 }

@@ -2,19 +2,24 @@ form{
     display:flex;
     flex-direction: column;
 
-    label{
-        margin:10px 0;
+    label{  
         font-size: 16px;
         color:#333333;
     }
-    input{
+    input,select{
         font-size: 16px;
         padding: 10px;
-        border:1px solid #333333;
+        border:1px solid $secondary-color;
         width: 100%;
-        border-radius: 10px;
-
+        border-radius: 0.25rem;
     }
-  
+    input[type=checkbox] {
+        margin: 10px;
+        height: 20px;
+        width: 20px;
+    }
 }
- 
+
+
+
+
