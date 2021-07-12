@@ -8,7 +8,8 @@ section[class^="product"]:not(.product_show) {
 }
 
 .banner{
-    height: $full-vh;
+    // height: $full-vh;
+    height: calc(var(--vh, 1vh) * 100 - 60px);
     background: center / cover no-repeat url(https://images.unsplash.com/photo-1588159343745-445ae0b16383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=889&q=80);
     display: flex;
     align-items: center;
