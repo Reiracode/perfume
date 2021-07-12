@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <h1 class="logo">
+        <h1 class="logo texthide">
             <a href="./index.html">Perfume香水電商網站</a>
         </h1>
         
@@ -33,7 +33,7 @@
         </ul>
     </header>
 
-    <div class="wrap full-section">
+    <div class="wrap">
         <section class="member d-flex">
             <div class="side_menu">
                 <h3>會員中心</h3>
@@ -48,6 +48,7 @@
                 <form  id="modify_form">
                     <div class="form_control">
                         <label for="member_account">會員帳號</label>
+                        <!-- <p>example@example.com</p> -->
                         <input type="text" name="member_account" value="example@example.com" disabled>
                     </div>
                     <div class="form_control">
@@ -57,7 +58,7 @@
                     <div class="form_control">
                         <label for="gender">會員性別</label>
                         <!-- <input type="text" name="gender" id="gender"> -->
-                        <select name="gender" id="gender">
+                        <select name="gender" id="gender" class="greenText">
                             <option value="male">男</option>
                             <option value="female">女</option>
                         </select>
@@ -67,18 +68,18 @@
                         <input type="text" name="email"  id="email" >
                     </div>
                     <div class="form_control">  
-                        <label for="">聯絡地址</label>
+                        <label for=""  class="multi-row">聯絡地址</label>
                         <div class="forms_input_group"> 
                             <div class="tw-city-selector" role="tw-city-selector"></div>
                             <input type="text" name="address1">
                             <label class="lb_check"><input type="checkbox" class="checkbox" name="subscrible">
-                                <span>✔</span>
+                                <!-- <span>✔</span> -->
                                 <p>我願意收到最新優惠情報</p>
                             </label>
                         </div>
                     </div>
                     <div class="form_control">
-                        <label for="">配送地址</label>
+                        <label for="" class="multi-row">配送地址</label>
                         <div class="forms_input_group"> 
                             <div class="tw-city-selector" role="tw-city-selector"></div>
                             <input type="text" name="address2">
@@ -89,7 +90,7 @@
                 <a class="border_btn modify_btn">確定修改</a>
 
                 <h4>修改密碼</h4>
-                <form >
+                <form id="modify_pwd">
                     <div class="form_control">
                         <label for="">舊密碼</label>
                         <input type="password">

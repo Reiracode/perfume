@@ -2,6 +2,9 @@
     background-color:$primary-color;
     a{
         color:$space-color;
+        &:hover{
+            background-color:$space-color;
+        }
     }
 }
 

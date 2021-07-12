@@ -27,11 +27,10 @@ section[class^="product"]:not(.product_show) {
             font-size: 24px;
         }
         a{
+            // @include button-basis-style(2,#fff)
             border-radius: 20rem;
             border:2px solid #fff;
             padding:10px;
-            display: block;
-            text-align: center;
             transition: all .3s;
             width: 300px;
             box-shadow: 3px 4px 0px transparent;
@@ -41,7 +40,6 @@ section[class^="product"]:not(.product_show) {
                 color:$primary-color;
             }
         }
-
     }
     @include pad{
         &{
@@ -50,7 +48,6 @@ section[class^="product"]:not(.product_show) {
                 width:100%;
             }
         }
-
     }
 }
 
@@ -68,8 +65,7 @@ section[class^="product"]:not(.product_show) {
             height: 100vw;
             @include pad{ 
                 height: auto;
-            }
-            
+            }  
         }
         .intro_img{
             flex: 0 0 50%;
@@ -108,21 +104,17 @@ section[class^="product"]:not(.product_show) {
         font-size: 1.25rem;
     }
     span{
-        // margin-top: auto;
         color:$primary-color;
     }
     a{
-        color:inherit;
         border: 1px solid;
         transition: all .3s;
         box-shadow: 3px 4px 0px transparent;
         &:hover{
-            color:inherit;
             border: 1px solid;
             box-shadow: 3px 4px 0px $primary-color;
         }
     }
-
 }
 
 
@@ -131,7 +123,6 @@ section[class^="product"]:not(.product_show) {
     padding: 4rem;
     background-color: $third-color;
     @include card-list-bs(10,33.3333%);
-
     @include phone{
         // height: auto;
         flex-direction:column;
@@ -172,13 +163,10 @@ section[class^="product"]:not(.product_show) {
             flex:1;
         }
     }
-
 }
 
 .subscribe{
     height:$full-vh;
-    // background: center / cover no-repeat url(https://images.unsplash.com/photo-1532413992378-f169ac26fff0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80);
-    // background-attachment: fixed;
     display: flex;
     align-items: flex-end;
     &::before{
@@ -209,7 +197,6 @@ section[class^="product"]:not(.product_show) {
         display:flex;
         height: 56px;
         border: 2px solid $primary-color;
-        // border-radius: 0.25rem;
         input[type=text]{
             height: 100%; 
             flex: 1;
@@ -252,7 +239,7 @@ section[class^="product"]:not(.product_show) {
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
+    display: none   ; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0;
@@ -260,10 +247,30 @@ section[class^="product"]:not(.product_show) {
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    z-index: 1;  
     &.active{
-        display:block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .material-icons{
+            font-size:20vw;
+            color:#fff;
+            animation: move 2s infinite;
+        }
+        @keyframes move {
+        0% {
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        50% {
+            transform:  rotate(360deg);
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(0deg);
+            opacity: 0;
+        }
+        }
     }
 }
 
@@ -316,7 +323,7 @@ section[class^="product"]:not(.product_show) {
 
 .member{
     display: flex;
-    padding: 20px;
+    padding: 0 20px;
     .side_menu{
         @include column-basis-style(0,15%);
         max-width: 130px;
@@ -349,10 +356,12 @@ section[class^="product"]:not(.product_show) {
     .member_form{
         flex:1;
         margin:0 50px;
+
         .form_control{
             display:flex;
-            align-items:baseline;
+            align-items:center;
             margin: 10px 0;
+
             .forms_input_group{
                 flex:1;
             }
@@ -366,26 +375,79 @@ section[class^="product"]:not(.product_show) {
                     font-size: 1rem;
                 }
             }
-            .checkbox+span {
-                display: none;
+            // input[type=checkbox]+span {
+            //     display: none;
+            // }
+            // input[type=checkbox].checked {
+            //     display: none;
+            // }                   
+            // input[type=checkbox].checked+ span {
+            //     display: inline-block;
+            //     text-align: center;
+            //     width: 20px;
+            //     height: 20px;
+            //     color:pink!important; 
+            //     background-color: pink;
+            //     font-size: 26px;
+            //     margin: 10px;
+            // }
+                label {
+                    padding: 0;
+                    margin-right: 3px;
+                    cursor: pointer;
+                }
+                // input[type=checkbox] {
+                //     display: none;
+                //     position: relative;
+                // }
+                // input[type=checkbox]+span {
+                //     display: inline-block;
+                //     background-color: #aaa;
+                //     padding: 3px 6px;
+                //     border: 1px solid gray;
+                //     color: #444;
+                //     user-select: none; /* 防止文字被滑鼠選取反白 */
+                // }
+
+                // input[type=checkbox]:checked+span {
+                //     color: yellow!important;
+                //     background-color: #444;
+                // }
+            input[type=checkbox]:checked{
+                position: relative;
             }
-            .checkbox.checked {
-                display: none;
-            }                   
-            .checkbox.checked + span {
-                display: inline-block;
+            input[type=checkbox]:checked:before {
+                position: absolute;
+                top: 0px;
+                left: 0;
+                content: '✓';
+                width: 100%;
+                height: 100%;
+                border-radius: 2px;
                 text-align: center;
-                width: 20px;
-                height: 20px;
-                color: $primary-color;
-                font-size: 16px;
-                margin: 10px;
+                font-size: 20px;
+                color: #916000;;
+                // background-color: #916000;
             }
+
+
+
+
+                
         }
         label{
             min-width: 80px;
             display: flex;
             align-items: center;
+            &.multi-row{
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+
+        }
+
+        select{
+             color:#8D8D8D;
         }
         input{
             color:#8D8D8D;
@@ -426,7 +488,7 @@ section[class^="product"]:not(.product_show) {
                 flex-direction: row;
                 justify-content:space-between;
                 li{
-                    padding: 0 20px;
+                    padding: 0 0px;
                 }
             }
         }
@@ -437,6 +499,10 @@ section[class^="product"]:not(.product_show) {
         .member_form{
             order:2;
         }
+    }
+
+    .border_btn{
+        margin:20px 0;
     }
 }
 

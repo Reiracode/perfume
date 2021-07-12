@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <h1 class="logo">
+        <h1 class="logo texthide">
             <a href="./index.html">Perfume香水電商網站</a>
         </h1>
         
@@ -32,6 +32,7 @@
             </div>
         </ul>
     </header>
+     <div id="overlay"><span  class="material-icons">loop</span></div>
     <div class="wrap">
         <ul class="navlink brand_catlog">
             <li><a href="#">CHANEL</a></li>
@@ -41,8 +42,6 @@
             <li><a href="#">Chloe</a></li>
             <li><a href="#">ZARA</a></li>
         </ul>
-
-        <div id="overlay"></div>
         <section class="products">
             <div id="product_content" class="product_list" ></div>
             <ul class="pagination">
@@ -81,6 +80,7 @@
             </ul>
         </footer>
     </div>
+   
 <script>
 AOS.init(); 
 var tbody = document.querySelector('#product_content');
@@ -110,11 +110,12 @@ function displayCardlist() {
 displayCardlist();
 
 
-var tel = document.querySelector("#overlay");
-tel.classList.add("active");
+var overlay = document.querySelector("#overlay");
+overlay.classList.add("active");
+
 window.addEventListener("load", showPage, false);
-function showPage() {
-    tel.remove("active");
+function showPage(e) {
+    overlay.remove("active");   
 }
 
 

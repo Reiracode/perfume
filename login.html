@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Perfume</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-        <link rel="stylesheet" href="./css/all.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>  
-        <script src="./js/all.js"></script>
+    <title>Perfume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="./css/all.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>  
+    <script src="./js/all.js"></script>
 </head>
 <body>
     <header>
-        <h1 class="logo">
+        <h1 class="logo texthide">
             <a href="./index.html">Perfume</a>
         </h1>
         
@@ -34,7 +34,7 @@
     </header>
     <div class="wrap  full-section">  
         <section class="product_recycle d-flex">
-            <div class="recycle_img" data-aos="fade-down" data-aos-duration="3000">
+            <div class="recycle_img">
                 <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/login1.jpg?raw=true" alt="">
             </div>
 
@@ -78,12 +78,6 @@ AOS.init();
 var loginBtn  = document.querySelector('#login');
 var loginForm  = document.querySelector('#login_form');
 loginBtn.addEventListener('click', () => {
-    // if (cartsDataLength < 1) {
-    //     alert('購物車內沒有商品');
-    //     return;
-    // }
-
-  // --- 表單驗證 ---
     const constraints = {
     'Email': {
         presence: {message: '是必填欄位' },
@@ -105,10 +99,6 @@ loginBtn.addEventListener('click', () => {
 
     // --- 表單驗證 ---
     const elementsArr = Array.from(loginForm.elements);
-    console.log(elementsArr);
-    console.log(elementsArr[0].value.trim())  
-    console.log(elementsArr[1].value.trim())  
-
 // $.ajax({
 //     url: "https://reqres.in/api/login",
 //     type: "POST",
@@ -124,12 +114,8 @@ loginBtn.addEventListener('click', () => {
 //     }
 // });
 
+var data = {"email": elementsArr[0].value.trim(),"password": elementsArr[1].value.trim()};
 
-var data = 
-        {"email": elementsArr[0].value.trim(),    
-        "password": elementsArr[1].value.trim()
-    }
-console.log(data)
 var headers = {
     "Content-Type": "application/json",                                                                                                
     "Access-Control-Origin": "*"
@@ -141,9 +127,7 @@ var headers = {
         mode: 'cors',
         body: JSON.stringify(data)
     })
-// -------------------------------
     .then(response => response.json())
-    // .then((responseJson) => console.log(responseJson)
     .then((responseJson) => {
         console.log(responseJson)
         if (responseJson.token) {

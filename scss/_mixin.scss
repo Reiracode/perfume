@@ -48,3 +48,15 @@
     }
 }
 
+
+@mixin button-basis-style($border, $color) {
+    border: #{$border}px solid $color;
+    color: $color;
+    border-radius: 20rem;
+    transition: all .3s;
+    @include bg-opacity($color, 0.657);
+    &:hover{
+        background-color: $color;
+        color:$primary-color;
+    }
+}
