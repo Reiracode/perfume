@@ -11,3 +11,6 @@ $space-color: #fff;
 $header-height:60px;
 $full-vh:calc(100vh - #{$header-height});
 
+
+$one-page: calc(var(--vh, 1vh) * 100 - #{$header-height});
+

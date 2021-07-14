@@ -7,16 +7,22 @@
 // <footer> 內的文字 Copyright© 2021 建議外層也包上 p 標籤。 */
 
 // @mixin set-card($gap, $percent) {
-//     display: flex;
-//     margin: 0 -#{$gap}px;
-//     > div {
-//         flex: 0 0 $percent;
-//         .gap {
-//         padding: 0 #{$gap}px;
-//         }
-//     }
+//     // margin: 0 -#{$gap}px;
+//     //  div {
+//     //     flex: 1 1 $percent;
+//     //     .gap {
+//     //     padding: 0 #{$gap}px;
+//     //     }
+//     // }   
+
+//     // @for $i from 1 through $total {
+//     //     .ray:nth-child(#{$i}) {
+//     //         flex:1 1 300px;
+//     //     }
+//     // }
 // }
 
+//flex box 
 @mixin card-list-bs($gap, $percent) {
     >.card-list {
         margin: 0 #{$gap}px;
@@ -49,14 +55,44 @@
 }
 
 
+
+
+
 @mixin button-basis-style($border, $color) {
     border: #{$border}px solid $color;
     color: $color;
     border-radius: 20rem;
     transition: all .3s;
-    @include bg-opacity($color, 0.657);
-    &:hover{
+    @include bg-opacity($secondary-color,0.85);
+    :hover{
         background-color: $color;
         color:$primary-color;
     }
 }
+
+
+@mixin fontSize($from: 1, $to: 6){
+    @for $i from $from to $to{
+        .text-#{$i}{
+            font-size: 10px * $i;
+        }
+    }
+}  
+
+// p{
+// @include fontSize(1, 5);
+// }
+
+@mixin flex-2-col($gap, $percent) {
+    >.col-m-#{$percent} {
+        margin: 0 #{$gap}px;
+        flex: 0 0 calc(#{$percent} - #{$gap*2}px);
+        max-width:  $percent;
+    }
+    >.col-m-#{$percent} {
+        margin: 0 #{$gap}px;
+        flex: 0 0 calc(#{$percent} - #{$gap*2}px);
+        max-width:  $percent;
+    }
+}
+

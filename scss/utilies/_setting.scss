@@ -16,10 +16,10 @@
     display:flex;
 }
 
-.d-flex{
+.f-1{
     flex:1;
 }
-// layout - full
+
 .full-section{
     height: calc(100vh - #{$header-height});
     display: flex;
@@ -44,5 +44,20 @@
     display:flex;
     div{
         @include column-basis-style(0,50%);
+    }
+}
+
+.p-2{
+    padding: 20px;
+}
+
+@media (min-width:767px) {
+    .col-md-4{
+        flex:0 0 33.3333%;
+        max-width:33.3333%;
+    }
+    .col-md-8{
+        flex:0 0 66.6667%;
+        max-width:66.6667%;
     }
 }

@@ -6,6 +6,7 @@ form{
         font-size: 16px;
         color:#333333;
     }
+
     input,select{
         font-size: 16px;
         padding: 10px;
@@ -13,18 +14,13 @@ form{
         width: 100%;
         border-radius: 0.25rem;
         outline: none;
-        appearance: none; 
-    }
-    input[type=checkbox] {
-        margin: 10px;
-        height: 20px;
-        width: 20px;
-    }
-    input:disabled  {
-        opacity: 1!important;
-        color:  #000!important;
     }
 }
+
+
+
+
+
 
 
 
