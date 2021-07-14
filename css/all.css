@@ -1299,8 +1299,7 @@ section[class^="product"]:not(.product_show) {
 }
 
 .f_block-2 .f-1 {
-  -webkit-columns: #916000;
-          columns: #916000;
+  color: #916000;
 }
 
 .f_block-2 .f_info {
