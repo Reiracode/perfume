@@ -1,0 +1,139 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  padding: 5px 10px;
+  z-index: 1;
+  .logo a{
+    background: center/contain no-repeat
+      url(https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/d%E2%80%99Perfume@2x.png?raw=true);
+    width: 130px;
+    height: 50px;
+  }
+}
+
+
+
+.navlink {
+  display: flex;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    position: relative;
+    color: $secondary-color;
+    font-size: 1.2rem;
+    transition: all .3s;
+    &:hover,&:focus{
+      color:$primary-color;
+    }
+  }
+  @include phone {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+    &.active {
+      max-height: 300px;
+    }
+    &.brand_catlog {
+      display: none;
+    }
+    .material-icons {
+      display: none;
+    }
+    a {
+      background-color: $secondary-color;
+      padding: 10px;
+      color: $space-color;
+      border-bottom: 1px solid $space-color;
+      &:hover{
+          color:#fff;
+          background-color: $primary-color;
+        }
+    }
+    
+  }
+}
+
+.mobile-navlink {
+  display: none;
+  @include phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a {
+    color: $secondary-color;
+  }
+  .menu {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    span {
+      width: 100%;
+      margin: 4px 0;
+      height: 1px;
+      background-color: $secondary-color;
+      transition: all 0.3s ease-out;
+    }
+    &.active {
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(1),
+      span:nth-child(3) {
+        width: 100%;
+        position: absolute;
+        left: 1px;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+      span:nth-child(1) {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+ 
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  color: #fff;
+  width: 100%;
+  background: $primary-color;
+  .navlink a {
+    color: #fff;
+  }
+
+  .navlink {
+    @include phone {
+      display: none;
+    }
+  }
+  .logo img{
+    max-width: 120px;
+    display: block;
+    @include phone{
+        max-width: 100px;
+        height: 30px;
+    }
+  }
+}

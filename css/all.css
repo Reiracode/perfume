@@ -15,7 +15,6 @@
   border: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: none;
 }
 
 :focus {
@@ -23,7 +22,12 @@
 }
 
 a {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0.75rem 0;
   text-decoration: none;
   color: inherit;
@@ -627,7 +631,7 @@ section[class^="product"]:not(.product_show) {
 }
 
 .banner .banner_descript {
-  color: #fff;
+  color: #8D8D8D;
   width: 50%;
   padding: 3rem;
 }

@@ -37,15 +37,14 @@
             <div class="f_img">
                 <img src="https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/login1.jpg?raw=true" alt="">
             </div>
-
             <div class="f_info">
                 <h3>Log in</h3>
-                <form class="login_form" id="login_form">
+                <form class="login_form" id="login_form" name="login_form">
                     <label for="account">帳號</label>
-                    <input type="email" name="Email" class="form-control" id="account" placeholder="email@example.com" data-message="Email"> 
+                    <input type="email" name="userno" class="form-control" id="userno" placeholder="email@example.com" data-message="Email"> 
                     
                     <label for="ac_pwd">密碼</label>
-                    <input type="password" name="Password" class="form-control" id="ac_pwd" placeholder="Password" data-message="Password">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" data-message="Password">
                 </form>
 
                 <div class="login_status">
@@ -77,61 +76,60 @@ AOS.init();
 var loginBtn  = document.querySelector('#login');
 var loginForm  = document.querySelector('#login_form');
 loginBtn.addEventListener('click', () => {
-    const constraints = {
-    'Email': {
-        presence: {message: '是必填欄位' },
-        email: {message: '格式錯誤' } }
-    };
+    // const constraints = {
+    // 'Email': {
+    //     presence: {message: '是必填欄位' },
+    //     email: {message: '格式錯誤' } }
+    // };
 
-    const errors = validate(loginForm, constraints);
+    // const errors = validate(loginForm, constraints);
 
-    if (errors) {
-        for (var v in errors) {
-            if (errors.hasOwnProperty(v)) {
-                alert(errors[v][0]);
-                document.querySelector(`input[name=${v}]`).focus();
-                break;
-            }
-        }
-        return;
-    }
-
-    // --- 表單驗證 ---
+    // if (errors) {
+    //     for (var v in errors) {
+    //         if (errors.hasOwnProperty(v)) {
+    //             alert(errors[v][0]);
+    //             document.querySelector(`input[name=${v}]`).focus();
+    //             break;
+    //         }
+    //     }
+    //     return;
+    // }
     const elementsArr = Array.from(loginForm.elements);
-// $.ajax({
-//     url: "https://reqres.in/api/login",
-//     type: "POST",
-//     dataType: 'json',
-//     async: false,
-//     data: {
-//         "email": "eve.holt@reqres.in",
-//         "password": "cityslicka"
-//     },
-//     success: function(response){
-//         console.log(response);
-//         //  window.location.href = "./member.html";
-//     }
-// });
+    var data = {"email": elementsArr[0].value.trim(),"password": elementsArr[1].value.trim()};
+    var formElement = document.querySelector("#login_form");
+    var formData = new FormData(formElement);
 
-var data = {"email": elementsArr[0].value.trim(),"password": elementsArr[1].value.trim()};
+    const domainName = window.location.href
+    const loc = domainName.indexOf(':', 6)
+    const allurl = domainName.slice(0, loc) + ":8080"
 
-var headers = {
-    "Content-Type": "application/json",                                                                                                
-    "Access-Control-Origin": "*"
-}
-
+    fetch(allurl+"/reirasys_api/login_api.php", {
+        method: "POST",
+        credentials: "include",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(resJson => {
+        console.log(resJson);
+    })
+    
     fetch("https://reqres.in/api/login", {
         method: 'POST',
-        headers: headers,
+        headers: {
+            "Content-Type": "application/json"
+        },
         mode: 'cors',
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka"
+        })
     })
     .then(response => response.json())
     .then((responseJson) => {
         console.log(responseJson)
         if (responseJson.token) {
             console.log("fetch was succesfull!");
-            window.location.href = "./member.html";
+            // window.location.href = "./member.html";
         } else {
             console.log(responseJson.error);
             // response.message could be used to show what was wrong
@@ -149,7 +147,20 @@ var headers = {
 // }).catch(error => console.log(error));
 
 // -------------------------------
-
+// $.ajax({
+//     url: "https://reqres.in/api/login",
+//     type: "POST",
+//     dataType: 'json',
+//     async: false,
+//     data: {
+//         "email": "eve.holt@reqres.in",
+//         "password": "cityslicka"
+//     },
+//     success: function(response){
+//         console.log(response);
+//         //  window.location.href = "./member.html";
+//     }
+// });
 
 
 });
